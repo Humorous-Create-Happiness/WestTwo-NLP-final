@@ -77,7 +77,7 @@ class CustomSeq2SeqTrainer(Seq2SeqTrainer):
         return loss
 
 # 加载 FictionDataset
-#dataset = FictionDataset(txt_file="综合.txt", max_length=128)
+dataset = FictionDataset(txt_file="综合.txt", max_length=128)
 
 
 # 初始化 BertTokenizer 和 EncoderDecoderModel
@@ -99,7 +99,7 @@ bert2bert.load_state_dict(torch.load(model_checkpoint, map_location=device))
 bert2bert.eval()
 
 ''''''
-'''
+
 # 训练参数和配置
 training_args = Seq2SeqTrainingArguments(
     output_dir="./output",
@@ -125,7 +125,7 @@ save_path = "bert2bert-model2.bin"
 torch.save(bert2bert.state_dict(), save_path)
 print("Model weights saved to:", save_path)
 
-'''
+
 print('666')
 
 # 生成文本示例
@@ -158,9 +158,7 @@ def generate_text_with_beam_search(prompt,bad_words, max_length=30, temperature=
 
     return generated_texts
 
-#text = "他们此行，武力最强的是伽罗明尊，知识最渊博的是白南轩，最熟悉地理，一路破开禁制的走路瑶珈、莫桑桑。"
-#text = "路瑶珈抹去嘴角的血迹，冷声道：“我能感觉到，那条狗只怕是羿皇留下对付我寒月宫的天敌！留着它，早晚会给我寒月宫带来灭顶之灾，"
-text = "孔雀心中也震惊万分，当初她带着凤烟柔一起逃婚，那时叶旭才是三丹境的幻丹期。她自问这些日子，从未有过一日偷懒，"
+
 
 
 # 创建禁止词列表
